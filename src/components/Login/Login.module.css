@@ -1,0 +1,145 @@
+.container{
+    display: flex;
+    font-family: "Open Sans", sans-serif;
+}
+
+.leftPart{
+    display: flex;
+    flex-flow: column;
+    background-color: #17A2B8;
+    height: 100vh;
+    width: 55vw;
+    align-items: center;
+}
+
+.imageArea{
+    margin-top: 18vh;
+    width:400px;
+}
+
+.circle{
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    background-color: rgb(116, 159, 173);
+    position: absolute;
+    margin-top: 60px;
+    margin-left: 91px;
+}
+
+.imageArea > img{  
+    position: absolute; 
+    height: 400px;
+    width: 400px;
+}
+
+.heading{
+    margin-top: 40%;
+    color: white;
+    font-weight: 500;
+}
+
+.tagline{
+    margin-top: 10px;
+    color: white;
+    font-weight: 100;
+}
+
+
+.rightPart{
+    width: 45vw;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4vh;
+}
+
+.loginHeading{
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.emailArea{
+    display: flex;
+    width: 30vw;
+    height: 45px;
+    border: 1px solid #D0D0D0;
+    border-radius: 10px;
+    align-items: center;
+}
+
+.passwordArea{
+    display: flex;
+    margin-top: 2vh;
+    width: 30vw;
+    height: 45px;
+    border: 1px solid #D0D0D0;
+    border-radius: 10px;
+    align-items: center;
+}
+
+.emailArea > img,
+.passwordArea > img {
+    height: 25px;
+    width: 25px;
+    margin-left: 13px;
+} 
+
+.emailArea > input,
+.passwordArea > input {
+    border: none;
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px; 
+    margin-left: 10px;
+    outline: none;    
+    width: 100%;
+}
+
+.loginButton > button{
+    cursor: pointer;
+    width: 30vw;
+    height: 50px;
+    font-size: 1.2rem;
+    background-color: #17A2B8;
+    border: 1.5px solid #17A2B8;
+    color: white;
+    border-radius: 50px;
+}
+
+.regRedirect > button{
+    cursor: pointer;
+    width: 30vw;
+    height: 50px;
+    font-size: 1.2rem;
+    background-color: white;
+    border: 1.5px solid #17A2B8;
+    border-radius: 50px;
+    color: #17A2B8;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.regRedirect > button:hover {
+    background-color: #17A2B8;
+    color: white;
+}
+.regRedirect > button:active {
+    border-color: transparent;
+    transform: scale(0.95); 
+}
+
+.loginButton > button:hover {
+    background-color: white;
+    color: #17A2B8;
+}
+.loginButton > button:active {
+    transform: scale(0.95); 
+}
+
+.errorMsg{
+    font-size: 13px;
+    font-weight: 500;
+    margin-top: 10px;
+    margin-left: 10px;
+    color: red;
+}

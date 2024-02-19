@@ -1,0 +1,142 @@
+.container{
+    display: flex;
+    font-family: "Open Sans", sans-serif;
+}
+
+.leftPart{
+    display: flex;
+    flex-flow: column;
+    background-color: #17A2B8;
+    height: 100vh;
+    width: 55vw;
+    align-items: center;
+}
+
+.imageArea{
+    margin-top: 18vh;
+    width:400px;
+}
+
+.circle{
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    background-color: rgb(116, 159, 173);
+    position: absolute;
+    margin-top: 60px;
+    margin-left: 91px;
+}
+
+.imageArea > img{  
+    position: absolute; 
+    height: 400px;
+    width: 400px;
+}
+
+.heading{
+    margin-top: 40%;
+    color: white;
+    font-weight: 500;
+}
+
+.tagline{
+    margin-top: 10px;
+    color: white;
+    font-weight: 100;
+}
+
+.rightPart{
+    width: 45vw;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4vh;
+}
+
+.registerHeading{
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.nameArea,
+.emailArea,
+.passwordArea,
+.confirmPasswordArea{
+    display: flex;
+    margin-top: 2vh;
+    width: 30vw;
+    height: 45px;
+    border: 1px solid #D0D0D0;
+    border-radius: 10px;
+    align-items: center;
+}
+
+.nameArea > img,
+.emailArea > img,
+.passwordArea > img,
+.confirmPasswordArea > img {
+    height: 25px;
+    width: 25px;
+    margin-left: 13px;
+} 
+
+.nameArea > input,
+.emailArea > input,
+.passwordArea > input,
+.confirmPasswordArea > input {
+    border: none;
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px; 
+    margin-left: 10px;
+    outline: none;    
+    width: 100%;
+}
+
+.registerButton > button{
+    cursor: pointer;
+    width: 30vw;
+    height: 50px;
+    font-size: 1.2rem;
+    background-color: #17A2B8;
+    border: 1.5px solid #17A2B8;
+    color: white;
+    border-radius: 50px;
+}
+
+.logRedirect > button{
+    cursor: pointer;
+    width: 30vw;
+    height: 50px;
+    font-size: 1.2rem;
+    background-color: white;
+    border: 1.5px solid #17A2B8;
+    border-radius: 50px;
+    color: #17A2B8;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.logRedirect > button:hover {
+    background-color: #17A2B8;
+    color: white;
+}
+.logRedirect > button:active {
+    border-color: transparent;
+    transform: scale(0.95); 
+}
+
+.registerButton > button:hover {
+    background-color: white;
+    color: #17A2B8;
+}
+.registerButton > button:active {
+    transform: scale(0.95); 
+}
+
+.errorMsg{
+    font-size: 13px;
+    font-weight: 500;
+    margin-top: 10px;
+    margin-left: 10px;
+    color: red;
+}
