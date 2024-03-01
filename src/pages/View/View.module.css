@@ -1,0 +1,179 @@
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.contentContainer{
+    padding: 20px;
+    font-family: "Inter", sans-serif;
+    min-width: 400px;
+    max-width: 750px;
+    max-height: 75vh;
+    border-radius: 10px;
+    background-color: rgb(204, 204, 204);
+}
+.header{
+    padding: 20px;
+    font-family: "Inter", sans-serif;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.header > h1{
+    font-weight: 800;
+}
+.header > img{
+    width: 40px;
+    height: 40px;
+}
+.priorityHeader{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.priorityName{
+    font-weight: 700;
+    font-size: 14px;
+}
+.circle{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+.title{
+    margin-top: 18px;
+    font-weight: 600;
+    max-width: 60vw;
+    text-wrap: wrap;
+    word-wrap: break-word;
+
+}
+.checklistHeader{
+    margin-top: 65px;
+    font-weight: 600;
+    font-size: 16px;
+}
+.checklistContentArea{
+    max-height: 40vh;
+    overflow-y: auto;
+    padding: 10px;
+    &::-webkit-scrollbar {
+        height: 10px;
+        width: 5px;
+        border-radius: 50%;
+    }
+
+    &::-webkit-scrollbar-track{
+        background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        height: 2px;
+        background-color: rgb(0, 140, 255);
+        border-radius: 50px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background-color: lightblue;
+    }
+}
+.checklistContent{
+    display: flex;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+.checklistContent > p{
+    max-width: 35vw;
+    text-wrap: wrap;
+    word-wrap: break-word;
+}
+.dueDate{
+    margin-top: 5px;
+    display: flex;
+    width: 230px;
+    justify-content: space-between;
+    align-items: center;
+}
+.dateArea{
+    background-color: red;
+    width: 130px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-weight: 800;
+    color: black;
+}
+
+@media (max-width: 600px) {
+    .contentContainer {
+        width: 70%;
+        align-items:center;
+        justify-content: center;
+    }
+
+    .header {
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+        margin-left: -15px;
+    }
+
+    .header > h1 {
+        font-size: 1.2rem;
+    }
+
+    .header > img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .priorityHeader {
+        flex-direction: row;
+    }
+
+    .priorityName {
+        font-size: 10px;
+    }
+
+    .circle {
+        width: 10px;
+        height: 10px;
+    }
+
+    .title {
+        margin-top: 10px;
+        font-size: 1.5rem;
+    }
+
+    .checklistHeader {
+        margin-top: 15px;
+        font-size: 0.8rem;
+    }
+
+    .checklistContentArea {
+        padding: 2px;
+    }
+
+    .checklistContent {
+        margin-top: 2px;
+        margin-bottom: 5px;
+        flex-direction: row;
+        margin-left: 20px;
+    }
+
+    .dueDate {
+        margin-top: 2px;
+        flex-direction: row;
+    }
+
+    .dateArea {
+        height: 40px;
+        font-weight: 600;
+        margin-top: 2px;
+    }
+}

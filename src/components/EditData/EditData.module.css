@@ -1,0 +1,115 @@
+.container{
+    font-family: "Inter", sans-serif;
+    padding: 20px;
+}
+
+.headerArea{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.headerArea > img{
+    height: 30px;
+    width: 30px;
+}
+
+.todosArea{
+    display: flex;
+    align-items: center;
+}
+
+.circle{
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.selectedOption{
+    display: flex;
+    padding: 3px;
+    align-items: center;
+    gap: 5px;
+    color: #767575;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.titleArea{ 
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 30px;
+}
+
+.titleArea > input{
+    width: 600px;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.priorityArea{
+    display: flex;
+    width: 800px;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.highPriority,.moderatePriority,.lowPriority{
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    gap: 5px;
+    color: #767575;
+    cursor: pointer;
+}
+
+.todosArea{
+    padding: 10px;
+    max-height: 50vh;
+    overflow-y: scroll;
+    gap:20px;
+    font-size: 20px;
+}
+
+.datePickerArea{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    gap: 20px;
+    font-size: 20px;
+}
+
+.dateArea{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 130px;
+    border: none;
+    font-size: 18px;
+    outline: none;
+    cursor: pointer;
+}
+
+.buttonArea{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    width: 500px;
+}
+
+.buttonArea > button{
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.buttonArea > button:active{
+    transform: scale(0.95);
+}

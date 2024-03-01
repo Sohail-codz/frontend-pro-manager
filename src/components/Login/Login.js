@@ -5,12 +5,18 @@ import homeImage from '../../assets/home_art.png'
 import emailIcon from '../../assets/email.png'
 import passIcon from '../../assets/lock.png'
 import visibilityIcon from '../../assets/visibility.png'
+import axios from 'axios'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Login() {
+    const MAIN_URL = process.env.REACT_APP_API_URL
+
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [visible, setVisible] = useState(false)
     const [errors, setErrors] = useState({})
+    const [loading,setLoading] = useState(false);
     
     const navigate = useNavigate();
 
@@ -30,19 +36,45 @@ function Login() {
         return Object.keys(newErrors).length === 0;
     }
 
-    const handleLogin = (e) => {
-        e.preventDefault()
-
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+    
         if (validateForm()) {
-            console.log('Form validated successfully!');
-            console.log('Email:', email);
-            console.log('Password:', password);
+            try {
+                const response = await axios.post(`${MAIN_URL}/login`, {
+                    email,
+                    password,
+                });
+                localStorage.setItem("name", response.data.User_Name);
+                localStorage.setItem("token", response.data.token);
+                toast.success('Login Successful!', { position:'top-right', autoClose: 2000 });
+                setTimeout(() => {
+                    navigate('/dashboard');
+                }, 3000);
+            } catch (error) {
+                console.log('Login failed:', error.response.data);
+                if (error.response.data.error) {
+                    const errorMessage = error.response.data.error.toLowerCase();
+                    if (errorMessage.includes('not')) {
+                        setErrors({ email: error.response.data.error });
+                        return;
+                    }
+                    if (errorMessage.includes('invalid')) {
+                        setErrors({ password: error.response.data.error });
+                        return;
+                    }
+                }
+            } finally {
+                setLoading(false);
+            }
             setEmail('');
             setPassword('');
         } else {
             console.log('Form validation failed.');
+            setLoading(false);
         }
-    }
+    };
 
     const registerRedirect = () => {
         navigate('/register');
@@ -84,13 +116,16 @@ function Login() {
                     {errors.password && <p className={styles.errorMsg}>{errors.password}</p>}
                 </form>
                 <div className={styles.loginButton}>
-                    <button type='submit' form='loginForm'>Login</button>
+                    <button type='submit' form='loginForm'>
+                    {loading ? "Loading..." : "Login"}
+                    </button>
                 </div>
                 <p style={{ color: '#828282' }}>Have no account yet ?</p>
                 <div className={styles.regRedirect}>
                     <button onClick={registerRedirect}>Register</button>
                 </div>
             </div>
+            <ToastContainer/>
         </div>
     )
 }

@@ -1,0 +1,173 @@
+.container{
+    display: flex;
+    flex-flow: column;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    min-height: 200px;
+    padding: 15px;
+    font-family: "Poppins", sans-serif;
+    background-color: white;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.header > img{
+    height: 5px;
+}
+
+.priorityHeader{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.circle{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: red;
+}
+
+.priorityName{
+    font-size: 12px;
+    font-weight: 700;
+    color: #707070;
+}
+
+
+.titleHeader > h3{
+    font-size: 27px;
+    font-weight: 500;
+    margin-top: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.checklistHeader{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.checklistHeader > h4{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.footer{
+    display: flex;
+    margin-top: 30px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dueDate{
+    display: flex;
+    width: 70px;
+    height: 30px;
+    border-radius: 9px;
+    font-size: 10px;
+    font-weight: 500;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.targetAreas{
+    display: flex;
+    align-items: center;
+}
+
+.options{
+    background-color: rgb(146, 146, 146);
+    margin: 5px 5px;
+    padding: 3px 9px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.options:active{
+    transform: scale(0.95);
+}
+
+.extraOptions{
+    cursor: pointer;
+    position: absolute;
+    font-weight: 500;
+    top: 0%; 
+    right: 10%; 
+    background-color: #fff; 
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); 
+    z-index: 1; 
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.extraOptions > div:active{
+    transform: scale(0.95);
+}
+
+.checklistContent{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 2px;
+    font-size: 20px;
+}
+
+.checklistContent > p{
+    width: 93%;
+    height: auto;
+    text-wrap: wrap;
+    word-wrap: break-word;
+}
+
+.popupContainer{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+    backdrop-filter: blur(1px); 
+    background-color: rgba(168, 168, 168, 0.5);
+}
+
+.popupContent{
+    padding: 30px;
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: white;
+}
+
+.popupContent > h3{
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.popupContent > button{
+    width: 100%;
+    height: 35px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.popupContent > button:active{
+    transform: scale(0.95);
+}

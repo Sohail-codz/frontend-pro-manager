@@ -1,17 +1,23 @@
 import React,{ useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 import styles from '../Register/Register.module.css'
 import homeImage from '../../assets/home_art.png'
 import userIcon from '../../assets/user.png'
 import emailIcon from '../../assets/email.png'
 import passIcon from '../../assets/lock.png'
 import visibilityIcon from '../../assets/visibility.png'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Register() {
+    const MAIN_URL = process.env.REACT_APP_API_URL;
+
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
+    const [loading,setLoading] = useState(false);
 
     const [errors, setErrors] = useState({})
 
@@ -40,19 +46,41 @@ function Register() {
         return Object.keys(newErrors).length === 0;
     }
 
-    const handleRegister = () => {
-        if (validateForm()) {
-          console.log('Form validated successfully!');
-          console.log('Name:', name);
-          console.log('Email:', email);
-          console.log('Password:', password);
-    
-          setName('');
-          setEmail('');
-          setPassword('');
-          setConfirmPassword('');
-        } else {
-          console.log('Form validation failed.');
+    const handleRegister = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+
+        if(validateForm()){
+            try{
+                const response = await axios.post(`${MAIN_URL}/register`,{
+                    name,
+                    email,
+                    password
+                })
+                toast.success('Registration Successful!', { position:'top-right', autoClose: 2000 });
+                setTimeout(() => {
+                    navigate('/');
+                  }, 3000);
+                console.log(response.data);
+            } catch(error){
+                console.log('registration failed', error.response.data);
+                if(error.response.data.error){
+                    const errorMessage = error.response.data.error.toLowerCase();
+                    if(errorMessage.includes('exists')){
+                        setErrors({ email: error.response.data.error });
+                        return;
+                    }
+                }
+            } finally {
+                setLoading(false); 
+            }
+            setName('');
+            setEmail('');
+            setPassword('');
+            setConfirmPassword('');
+        } else{
+            console.log('Form validation error');
+            setLoading(false);
         }
     };
 
@@ -119,13 +147,16 @@ function Register() {
                   )}
             </form>
             <div className={styles.registerButton}>
-                <button onClick={handleRegister}>Register</button>
+                <button onClick={handleRegister}>
+                {loading ? "Loading..." : "Register"}
+                </button>
             </div>
             <p style={{color:'#828282'}}>Have an account ?</p>
             <div className={styles.logRedirect}>
                 <button onClick={loginRedirect}>Login</button>
             </div>
         </div>
+        <ToastContainer/>
     </div>
   )
 }
