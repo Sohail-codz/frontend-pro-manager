@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './Board.module.css';
 import collapseAllIcon from '../../assets/collapseall.png';
 import Card from '../Card/Card';
@@ -200,6 +201,7 @@ function CreateChecklist({onClose}) {
   const [dueDate,setDueDate] = useState(null);
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
+  const navigate = useNavigate()
 
   const MAIN_URL = process.env.REACT_APP_API_URL
 
@@ -225,7 +227,7 @@ function CreateChecklist({onClose}) {
       );
       setErrors({});
       alert('Todo added Successfully');
-      window.location.reload();
+      navigate('/dashboard');
       console.log(response.data);
       handleClose();
     }catch (error) {
