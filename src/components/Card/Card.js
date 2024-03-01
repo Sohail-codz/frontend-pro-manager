@@ -16,7 +16,6 @@ function Card({ todos, onCardMove }) {
   const [expand, setExpand] = useState(false);
   const [showExtra, setShowExtra] = useState(false);
   const [showDeletPopUp,setShowDeletePopUp] = useState(false);
-  const [showEditPopUp,setShowEditPopUp] = useState(false);
   const [loading,setLoading] = useState(false);
 
   const generateOptions = (targetArea) => {
@@ -67,7 +66,6 @@ function Card({ todos, onCardMove }) {
   }
 
   const handleToEditDataPage = () =>{
-    setShowEditPopUp(true);
     localStorage.setItem('checklistId', todos._id)
     navigate('/dashboard/edit-checklist')
   }

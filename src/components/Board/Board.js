@@ -7,7 +7,6 @@ import deleteIcon from '../../assets/delete.png'
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import axios from 'axios';
-import EditPopup from '../EditData/EditData';
 
 function Board() {
   const MAIN_URL = process.env.REACT_APP_API_URL;

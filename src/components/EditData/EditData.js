@@ -60,6 +60,7 @@ function EditData() {
   };
 
   const handleSaveChanges = async () => {
+    setLoading(true)
     const token = localStorage.getItem('token');
     const checklistId = localStorage.getItem('checklistId');
     try {
@@ -77,11 +78,14 @@ function EditData() {
           },
         }
       );
+      setLoading(false);
       alert('Details Updated');
       localStorage.removeItem('checklistId');
       navigate('/dashboard');
     } catch (error) {
       console.error('Error updating checklist:', error);
+    } finally{
+      setLoading(false);
     }
   };
 
@@ -175,7 +179,9 @@ function EditData() {
           />
         </div>
         <div className={styles.buttonArea}>
-          <button onClick={handleSaveChanges} style={{backgroundColor:'#17A2B8',color:'white',border:'1px solid #17A2B8'}}>Save Changes</button>
+          <button onClick={handleSaveChanges} style={{backgroundColor:'#17A2B8',color:'white',border:'1px solid #17A2B8'}}>
+          { loading ? 'Saving...' : 'Save Changes'}
+          </button>
           <button onClick={handleClose} style={{color:'red',border:'1px solid red'}}>Close</button>
         </div>
       </div>
